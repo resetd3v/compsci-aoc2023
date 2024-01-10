@@ -1,4 +1,5 @@
 # compsci-aoc2023
+this for my comp sci class
 i hate python its too easy
 this is overcomplicated for the task i was set lmao they havent even done debugging or ternary yet
 php >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>=
