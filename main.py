@@ -34,6 +34,8 @@ def openFile(path, part):
 
 # https://stackoverflow.com/questions/47558704/python-dynamic-import-methods-from-file 90 % of coding is knowing what to google, i learned something fuck yoy
 def solve(path, part):
+    module = None
+    inputFile = None
     # add to path so we can reference
     sys.path.append(path)
     # get all files in dir eg. we can use *.py to get all py files
@@ -59,7 +61,7 @@ def solve(path, part):
                 print(module.solvePart2(inputFile))
             print()
         else:
-            print(f"cry about it | m: {module} | f: {file}")
+            print(f"cry about it | m: {module} | f: {inputFile}")
     except Exception as e:
         print(e)
 
@@ -69,7 +71,7 @@ if __name__ == "__main__":
     while True:
         try:
             dayPath = int(input("day (1-30): "))
-            if dayPath not in (1,30): raise SystemError
+            if dayPath not in range(1,30): raise SystemError
 
             # have to be ran in dir fuck string concat all my homies hate string concat
             path = os.path.join(f'{os.getcwd()}\\2023\\{str(dayPath)}')
