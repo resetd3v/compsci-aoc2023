@@ -41,7 +41,7 @@ def solve(path, part):
         print(f'{inputFile} | {inputFile.name}')
     
     # p100 null check 1337
-    if module != None and file != None:
+    if module != None and inputFile != None:
         print('\n-> ', end="")
         if part == 1:
             print(module.solvePart1(inputFile))
