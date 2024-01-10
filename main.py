@@ -30,7 +30,7 @@ def openFile(path, part):
 def solve(path, part):
     # add to path so we can reference
     sys.path.append(path)
-    # get all files in dir we can use *.py to get all py files
+    # get all files in dir eg. we can use *.py to get all py files
     pyFiles = glob.glob(os.path.join(path, 'lmao.py'))
     
     try:
@@ -43,7 +43,10 @@ def solve(path, part):
         
         # p100 null check 1337
         if module != None and inputFile != None:
-            print('\n-> ', end="")
+            # list comprehension go brrrr no ''.join() needed but y not pass in dayPath cuz fuck u thats y (this is meant to show off my knowledge idk lil bro also map() faster)
+            day = [w for w in path.split('\\')][-1]
+            print(f"\nday: {day} | part: {part}")
+            print("-> ", end="")
             if part == 1:
                 print(module.solvePart1(inputFile))
             elif part == 2:
