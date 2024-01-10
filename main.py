@@ -14,6 +14,12 @@ for skids:
         1 === 1 - true
 
     i hate this lang php in comp sci pls
+
+todo:
+    - dont clear when answer is shown (but still clear day and part obv)
+    - kys
+    - fix my faded ass using single quotes some places and double elsewhere i normally use double but use single cuz y not | done
+    - new naming convention ima use single on func calls that arent print cuz fuck it we ball
 """
 
 # my magnum opus
@@ -22,7 +28,7 @@ cls = lambda: os.system('cls || clear')
 # i wonder what this does
 def openFile(path, part):
     try:
-        return open(f"{path}\input{str(part)}.txt", 'r')
+        return open(f'{path}\input{str(part)}.txt', 'r')
     except Exception as e:
         print(e)
 
@@ -37,9 +43,9 @@ def solve(path, part):
         for file in pyFiles:
             moduleName = pathlib.Path(file).stem
             module = importlib.import_module(moduleName)
-            print(f'{module} | {moduleName}')
+            print(f"{module} | {moduleName}")
             inputFile = openFile(path, part)
-            print(f'{inputFile} | {inputFile.name}')
+            print(f"{inputFile} | {inputFile.name}")
         
         # p100 null check 1337
         if module != None and inputFile != None:
@@ -53,7 +59,7 @@ def solve(path, part):
                 print(module.solvePart2(inputFile))
             print()
         else:
-            print(f'cry about it | m: {module} | f: {file}')
+            print(f"cry about it | m: {module} | f: {file}")
     except Exception as e:
         print(e)
 
@@ -62,13 +68,13 @@ if __name__ == "__main__":
     cls()
     while True:
         try:
-            dayPath = int(input('day (1-30): '))
+            dayPath = int(input("day (1-30): "))
             if dayPath not in (1,30): raise SystemError
 
             # have to be ran in dir fuck string concat all my homies hate string concat
-            path = os.path.join(f"{os.getcwd()}\\2023\\{str(dayPath)}")
+            path = os.path.join(f'{os.getcwd()}\\2023\\{str(dayPath)}')
             # sys.path.append(inputPath)
-            part = int(input('part (1-2): '))
+            part = int(input("part (1-2): "))
             # BUFFER OVERFLWO!!1111!!!!!3137
             if part not in (1,2): raise OverflowError
 
