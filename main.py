@@ -32,24 +32,27 @@ def solve(path, part):
     sys.path.append(path)
     # get all files in dir we can use *.py to get all py files
     pyFiles = glob.glob(os.path.join(path, 'lmao.py'))
-
-    for file in pyFiles:
-        moduleName = pathlib.Path(file).stem
-        module = importlib.import_module(moduleName)
-        print(f'{module} | {moduleName}')
-        inputFile = openFile(path, part)
-        print(f'{inputFile} | {inputFile.name}')
     
-    # p100 null check 1337
-    if module != None and inputFile != None:
-        print('\n-> ', end="")
-        if part == 1:
-            print(module.solvePart1(inputFile))
-        elif part == 2:
-            print(module.solvePart2(inputFile))
-        print()
-    else:
-        print(f'cry about it | m: {module} | f: {file}')
+    try:
+        for file in pyFiles:
+            moduleName = pathlib.Path(file).stem
+            module = importlib.import_module(moduleName)
+            print(f'{module} | {moduleName}')
+            inputFile = openFile(path, part)
+            print(f'{inputFile} | {inputFile.name}')
+        
+        # p100 null check 1337
+        if module != None and inputFile != None:
+            print('\n-> ', end="")
+            if part == 1:
+                print(module.solvePart1(inputFile))
+            elif part == 2:
+                print(module.solvePart2(inputFile))
+            print()
+        else:
+            print(f'cry about it | m: {module} | f: {file}')
+    except Exception as e:
+        print(e)
 
 if __name__ == "__main__":
     # my amazing pattened reset input validation
