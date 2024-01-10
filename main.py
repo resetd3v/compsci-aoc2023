@@ -17,7 +17,7 @@ for skids:
 """
 
 # my magnum opus
-def cls(): os.system('cls || clear')
+cls = lambda: os.system('cls || clear')
 
 # i wonder what this does
 def openFile(path, part):
