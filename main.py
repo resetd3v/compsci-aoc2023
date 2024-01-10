@@ -62,8 +62,8 @@ if __name__ == "__main__":
             dayPath = int(input('day (1-30): '))
             if dayPath not in (1,30): raise SystemError
 
-            # have to be ran in dir
-            path = os.path.join(os.path.dirname(os.getcwd()), 'ADVENTOFCODE\\2023\\' + str(dayPath))
+            # have to be ran in dir fuck string concat all my homies hate string concat
+            path = os.path.join(os.getcwd() + '\\2023\\' + str(dayPath))
             # sys.path.append(inputPath)
             part = int(input('part (1-2): '))
             # BUFFER OVERFLWO!!1111!!!!!3137
