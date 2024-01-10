@@ -22,7 +22,7 @@ def cls(): os.system('cls || clear')
 # i wonder what this does
 def openFile(path, part):
     try:
-        return open(path + '\input' + str(part) + '.txt', 'r')
+        return open(f"{path}\input{str(part)}.txt", 'r')
     except Exception as e:
         print(e)
 
@@ -63,7 +63,7 @@ if __name__ == "__main__":
             if dayPath not in (1,30): raise SystemError
 
             # have to be ran in dir fuck string concat all my homies hate string concat
-            path = os.path.join(os.getcwd() + '\\2023\\' + str(dayPath))
+            path = os.path.join(f"{os.getcwd()}\\2023\\{str(dayPath)}")
             # sys.path.append(inputPath)
             part = int(input('part (1-2): '))
             # BUFFER OVERFLWO!!1111!!!!!3137
