@@ -50,18 +50,16 @@ def solve(path, part):
             print(f"{inputFile} | {inputFile.name}")
         
         # p100 null check 1337
-        if module != None and inputFile != None:
-            # list comprehension go brrrr no ''.join() needed but y not pass in dayPath cuz fuck u thats y (this is meant to show off my knowledge idk lil bro also map() faster)
-            day = [w for w in path.split('\\')][-1]
-            print(f"\nday: {day} | part: {part}")
-            print("-> ", end="")
-            if part == 1:
-                print(module.solvePart1(inputFile))
-            elif part == 2:
-                print(module.solvePart2(inputFile))
-            print()
-        else:
+        if module == None or inputFile == None:
             print(f"cry about it | m: {module} | f: {inputFile}")
+            return
+        # list comprehension go brrrr no ''.join() needed but y not pass in dayPath cuz fuck u thats y (this is meant to show off my knowledge idk lil bro also map() faster)
+        day = [w for w in path.split('\\')][-1]
+        print(f"\nday: {day} | part: {part}")
+        print(" -> ", end="")
+        print(module.solvePart1(inputFile) if part == 1 else module.solvePart2(inputFile))
+        print()
+            
     except Exception as e:
         print(e)
 
