@@ -2,24 +2,7 @@ import os, sys
 import glob, importlib, pathlib
 
 """
-for skids: 
-    = assignment
-    == selection
-    other langs:
-        == means can be diff type 
-        === means same type
-        eg.
-        '1' == 1 - true
-        '1' === 1 - false
-        1 === 1 - true
-
-    i hate this lang php in comp sci pls
-
-todo:
-    - dont clear when answer is shown (but still clear day and part obv)
-    - kys
-    - fix my faded ass using single quotes some places and double elsewhere i normally use double but use single cuz y not | done
-    - new naming convention ima use single on func calls that arent print cuz fuck it we ball
+    i hate this lang, php in comp sci pls
 """
 
 # my magnum opus
@@ -36,6 +19,7 @@ def openFile(path, part):
 def solve(path, part):
     module = None
     inputFile = None
+    # idk if u need this ngl dont see y u cant get it from filename
     # add to path so we can reference
     sys.path.append(path)
     # get all files in dir eg. we can use *.py to get all py files
@@ -64,27 +48,23 @@ def solve(path, part):
         print(e)
 
 if __name__ == "__main__":
-    # my amazing pattened reset input validation
-    cls()
     while True:
         try:
             dayPath = int(input("day (1-30): "))
             if dayPath not in range(1,30): raise SystemError
 
             # have to be ran in dir fuck string concat all my homies hate string concat
-            path = os.path.join(f'{os.getcwd()}\\2023\\{str(dayPath)}')
+            path = os.path.join(f'{__file__.replace("main.py", "")}2023\\{str(dayPath)}')
             # sys.path.append(inputPath)
             part = int(input("part (1-2): "))
+            cls()
             # BUFFER OVERFLWO!!1111!!!!!3137
             if part not in (1,2): raise OverflowError
 
-            cls()
             solve(path, part)
+        except: SystemError:
+            print(f"Enter a day 1-30 bozo | {dayPath}")            
+        except OverflowError:
+            print(f"Enter a part 1-2 dumbass | {part}")
         except Exception as e:
-            cls()
-            if type(e) == SystemError:
-                print(f"Enter a day 1-30 bozo | {dayPath}")
-            elif type(e) == OverflowError:
-                print(f"Enter a part 1-2 dumbass | {part}")
-            else:
                 print(e)
